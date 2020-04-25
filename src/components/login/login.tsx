@@ -3,36 +3,17 @@ import { IonApp, IonAlert, IonInput, IonContent, IonPage, IonCard, IonCardHeader
 import { pin, wifi, wine, warning, walk } from 'ionicons/icons';
 import axios from 'axios'
 import { IonReactRouter } from '@ionic/react-router';
-// import Register from './components/register/register'
+import login from '../../methods/login';
 export const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>();
-  const [ password, setPassword ] = useState<string>();
+  const [email, setEmail] = useState('');
+  const [ password, setPassword ] = useState('');
   const [errorAlert, showError] = useState(false);
   const [unauthrozedAlert, showUnauth] = useState(false);
 
-  function login(){
-    // const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-    // axios.post(PROXY_URL+'http://52.74.70.6/api/auth/login',{
-    //   email:email,
-    //   password:password
-    // },{ 
-    //     headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //     }
-    //   }).then((res)=>{
-    //   console.log(res)
-    // }).catch((err)=>{
-    //   if (err.response.status == 404) {
-    //   console.log(err.response.status);
-    //   showError(true)
-    //   }
-    //   if (err.response.status == 401) {
-    //   showUnauth(true)
-    //   console.log(err.response.status);
-    //   }
-    // })
-    window.location.href = "/home";
+  
+
+  async function loginAuth(){
+    await login(email,password)
   }
 
   return (
@@ -56,25 +37,11 @@ export const Login: React.FC = () => {
         </IonCard>
         <IonRow class="cardfooter">
           <IonCol>
-          <IonButton expand="block" type="submit" onClick={login}>Login</IonButton>
+          <IonButton expand="block" type="submit" onClick={loginAuth}>Login</IonButton>
           <IonButton expand="block" routerLink='/register'>Register</IonButton>
           </IonCol>
           </IonRow> 
       </IonContent>
-        <IonAlert
-          isOpen={errorAlert}
-          onDidDismiss={() => showError(false)}
-          header={'Alert'}
-          message={'Check your inputs'}
-          buttons={['OK']}
-        />
-         <IonAlert
-          isOpen={unauthrozedAlert}
-          onDidDismiss={() => showUnauth(false)}
-          header={'Alert'}
-          message={'Account not found'}
-          buttons={['OK']}
-        />
     </IonPage>
   );
 };

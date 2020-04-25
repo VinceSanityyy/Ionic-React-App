@@ -8,11 +8,11 @@ const Tab2: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
+          <IonTitle>Tab2</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <ExploreContainer name="Tab 2 page" />
+        
       </IonContent>
     </IonPage>
   );
