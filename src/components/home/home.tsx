@@ -4,11 +4,11 @@ import { calendar, personCircle, map, informationCircle, people } from 'ionicons
 import { Redirect, Route } from 'react-router';
 import Tab1 from '../../pages/Tab1';
 import Tab2 from '../../pages/Tab2';
-export const Home: React.FC = () => (
+export const Home: React.FC = () => {
 
-
-
-<IonTabs>
+  if(localStorage.getItem('bearer_token')){
+    return(
+      <IonTabs>
       <IonRouterOutlet>
         <Route path="/tab1" component={Tab1} />
         <Route path="/tab2" component={Tab2} />
@@ -36,6 +36,11 @@ export const Home: React.FC = () => (
         </IonTabButton>
       </IonTabBar>
     </IonTabs>
-);
+    )
+  }
+  return(
+    <Redirect to='/'/>
+  )
+};
 
 export default Home;

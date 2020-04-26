@@ -9,10 +9,10 @@ import {
   useIonViewWillEnter,
   useIonViewWillLeave
 } from '@ionic/react';
-import getExams from '../methods/exams';
+
 const Tab1: React.FC = () => {
   
-  
+  let response = useState([]);
 
   useIonViewDidEnter(() => {
     const config = {
@@ -40,7 +40,7 @@ const Tab1: React.FC = () => {
       </IonHeader>
       <IonContent className="ion-padding">
     <IonList>
-      {response.map(elem =>(
+      {/* {response.map(elem =>(
            <IonItem key={elem.id}>
            <IonLabel>
              <h2>{elem.schedule_type}</h2>
@@ -49,7 +49,7 @@ const Tab1: React.FC = () => {
            </IonLabel>
            <br></br>
          </IonItem> 
-      ))}
+      ))} */}
     </IonList>
   </IonContent>
     </IonPage>
