@@ -20,7 +20,7 @@ export default function login(email:string,password:string){
             'Content-Type': 'application/json',
         }
       }).then((res)=>{
-    //    console.log(res)
+       console.log(res)
        localStorage.setItem("bearer_token", res.data.bearer_token);
        loading.dismiss();
        window.location.href = "/home";
